@@ -94,6 +94,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-tailwindcssed (0.1.5)
+      rails (>= 5.2.3.4, < 7.1)
+      railties (> 4.0, < 7.1)
     erubi (1.12.0)
     ffi (1.15.5)
     globalid (1.1.0)
@@ -239,6 +242,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  devise-tailwindcssed (~> 0.1.5)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

@@ -1,0 +1,33 @@
+<nav class="relative mb-12 w-full flex flex-wrap items-center justify-between py-4 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+    <div>
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="flex items-center relative">
+      <div class="dropdown relative">
+        <% if user_signed_in? %>
+          <div class="grid grid-cols-2 gap-2 justify-center items-center">
+            <%= link_to "Profile", edit_user_path(current_user), class: "button-info" %>
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button-dark" %>
+          </div>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path, class: "button-dark" %>
+        <% end %>
+        <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0" aria-labelledby="dropdownMenuButton2">
+          <li>
+            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Action</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Another action</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
