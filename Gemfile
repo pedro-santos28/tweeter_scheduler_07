@@ -76,3 +76,7 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "devise", "~> 4.9"
 
 gem "devise-tailwindcssed", "~> 0.1.5"
+
+gem "omniauth-twitter2", "~> 0.1.0"
+
+gem "omniauth-rails_csrf_protection", "~> 1.0"
