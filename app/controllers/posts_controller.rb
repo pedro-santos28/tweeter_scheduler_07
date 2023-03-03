@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :new_post, only: %i[index]
+  before_action :all_posts, only: %i[index create]
+
   def index
-    @post = Post.new
-    @posts = Post.all
+
   end
 
   def create
@@ -11,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      render action: :edit, status: :unprocessable_entity
+      render action: :index, status: :unprocessable_entity
     end
   end
 
@@ -19,5 +21,13 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:published_at, :body)
+    end
+
+    def new_post
+      @post = Post.new
+    end
+
+    def all_posts
+      @posts = Post.all
     end
 end
