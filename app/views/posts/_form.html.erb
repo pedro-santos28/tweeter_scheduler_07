@@ -1,0 +1,12 @@
+<div class="block p-6 mt-4 rounded-xl shadow-lg bg-white mx-auto w-1/2 my-8">
+  <%= form_with model: post do |f| %>
+    <%= render partial: "shared/form_errors", locals: { obj: f.object } %>
+    <div class="form-group mb-6">
+      <%= f.rich_text_area :body, class: "input" %>
+    </div>
+    <div class="flex justify-between">
+      <%= f.datetime_local_field :published_at, class: "input" %>
+      <%= f.submit :schedule, class: "button" %>
+    </div>
+  <% end %>
+</div>

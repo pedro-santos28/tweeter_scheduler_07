@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= render partial: "form", locals: { post: @post } %>
+<% end %>
+
+<div class="grid grid-cols-3 gap-4">
+  <%= render @posts %>
+</div>
