@@ -2,16 +2,21 @@ class PostTweetJob < ApplicationJob
   queue_as :default
 
   def perform(post)
-    tweeter_client.post_tweet(text: post.body)
+    return if post.published?
+
+    response = twitter_client(post).post_tweet(text: post.body.to_plain_text)
+    Rails.logger.info response
+
+    post.update(published: true)
   end
 
   private
 
-    def twitter_client
-      client = Tweetkit::Client.new do |config|
+    def twitter_client(post)
+      Tweetkit::Client.new do |config|
         config.bearer_token = post.user.token
-        config.consumer_key = tweeter_cred(:api_key)
-        config.consumer_secret = tweeter_cred(:api_secret)
+        config.consumer_key = twitter_cred(:api_key)
+        config.consumer_secret = twitter_cred(:api_secret)
       end
     end
 

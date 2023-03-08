@@ -11,7 +11,8 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to root_path
+      PostTweetJob.set(wait_until: @post.published_at).perform_later(@post)
+      redirect_to root_path, notice: "Tweet saved."
     else
       render action: :index, status: :unprocessable_entity
     end

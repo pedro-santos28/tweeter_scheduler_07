@@ -82,3 +82,5 @@ gem "omniauth-twitter2", "~> 0.1.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "delayed_job_active_record", "~> 4.1"
+
+gem "tweetkit", "~> 0.2.0"
