@@ -4,5 +4,5 @@ class Post < ApplicationRecord
   has_rich_text :body
 
   validates :body, presence: true
-  validates :published_at, presence: true, comparison: { greater_than: Time.current }
+  validates :published_at, presence: true, comparison: { greater_than: Time.current }, on: :create
 end
