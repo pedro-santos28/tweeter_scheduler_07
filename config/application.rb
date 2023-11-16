@@ -16,7 +16,8 @@ module TwitterScheduler
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = "Europe/Bucharest"
+
+    config.time_zone = "Brazil/East"
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
